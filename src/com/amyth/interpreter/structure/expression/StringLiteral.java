@@ -1,14 +1,15 @@
 package com.amyth.interpreter.structure.expression;
 
-public class IntExpression extends Expression {
-    int value;
+public class StringLiteral extends Expression {
+    String value;
 
-    public IntExpression(int value) {
+    public StringLiteral(String value) {
         super.setType("integer");
         this.value = value;
     }
 
-    public int getValue() {
+    public String getValue() {
         return value;
     }
+
 }

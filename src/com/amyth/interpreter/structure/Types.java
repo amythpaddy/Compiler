@@ -15,7 +15,7 @@ public class Types {
     };
 
     public enum RelationType{
-        GR("integer"), STRING("string"), BOOL("boolean");
+        GR(">"), STRING("string"), BOOL("boolean");
 
         private String repr;
 

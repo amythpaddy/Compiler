@@ -14,8 +14,6 @@ public class Executor {
     private void execute() throws FileNotFoundException {
         codeGen = new CodeGenerator();
         Scanner sc = new Scanner(new File("code.txt"));
-        while(sc.hasNext()){
-            codeGen.analyseCode(sc.nextLine());
-        }
+        codeGen.analyseCode(sc);
     }
 }
