@@ -7,13 +7,15 @@ public class VarLiteral extends Expression {
     public VarLiteral(String name, Expression value) {
         this.name = name;
         this.value = value;
+        setType(value.getType());
     }
 
     public String getName() {
         return name;
     }
 
-    public Expression getValue() {
-        return value;
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

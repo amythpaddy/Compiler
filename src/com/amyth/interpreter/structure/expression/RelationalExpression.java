@@ -4,7 +4,7 @@ import com.amyth.interpreter.structure.Types;
 
 public class RelationalExpression extends BinaryExpression {
     String op;
-    public RelationalExpression(String op ,BinaryExpression leftExpr, BinaryExpression rightExpr) {
+    public RelationalExpression(String op ,Expression leftExpr, Expression rightExpr) {
         super(leftExpr, rightExpr);
         this.op = op;
     }

@@ -1,15 +1,15 @@
 package com.amyth.interpreter.structure.expression;
 
 public abstract class BinaryExpression extends Expression {
-    private BinaryExpression leftExpr;
-    private BinaryExpression rightExpr;
+    private Expression leftExpr;
+    private Expression rightExpr;
 
-    public BinaryExpression(BinaryExpression leftExpr, BinaryExpression rightExpr){
+    public BinaryExpression(Expression leftExpr, Expression rightExpr){
         this.leftExpr = leftExpr;
         this.rightExpr = rightExpr;
     }
 
-    public BinaryExpression getLeft() {
+    public Expression getLeft() {
         return leftExpr;
     }
 
@@ -17,7 +17,7 @@ public abstract class BinaryExpression extends Expression {
         this.leftExpr = leftExpr;
     }
 
-    public BinaryExpression getRight() {
+    public Expression getRight() {
         return rightExpr;
     }
 

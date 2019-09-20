@@ -1,8 +1,3 @@
-int value = 123
-if(a>32){
-print("asdf")
-}
-else{
-motor start
-}
-for(a=21;a<55;a++)
+int z = 10
+int y = 15
+a=z+y

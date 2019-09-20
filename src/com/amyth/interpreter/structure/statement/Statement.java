@@ -1,4 +1,7 @@
 package com.amyth.interpreter.structure.statement;
+
+import com.amyth.interpreter.structure.Type.Type;
+
 public abstract class Statement {
     String type="";
     public Statement(String type){
@@ -8,4 +11,6 @@ public abstract class Statement {
     public String toString() {
         return "A "+type+" statement";
     }
+
+
 }
