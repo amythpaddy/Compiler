@@ -6,11 +6,13 @@ public class IfStatement extends Statement {
 
 Statement elseStatement;
 Statement thenStatement;
+Statement elseIfStatement;
 Expression expression;
-    public IfStatement(Statement elseStatement, Statement thenStatement, Expression expression) {
+    public IfStatement(BlockStatement elseIfStatement, Statement elseStatement, Statement thenStatement, Expression expression) {
         super("if_stmt");
         this.expression = expression;
         this.elseStatement = elseStatement;
+        this.elseIfStatement = elseIfStatement;
         this.thenStatement = thenStatement;
     }
 
@@ -24,5 +26,9 @@ Expression expression;
 
     public Expression getExpression() {
         return expression;
+    }
+
+    public Statement getElseIfStatement() {
+        return elseIfStatement;
     }
 }

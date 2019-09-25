@@ -1,13 +1,13 @@
 package com.amyth.interpreter.structure.expression;
 
+import com.amyth.interpreter.structure.Type.Type;
+
 public class VarLiteral extends Expression {
     String name;
-    Expression value;
 
-    public VarLiteral(String name, Expression value) {
+    public VarLiteral(String name , Type type) {
         this.name = name;
-        this.value = value;
-        setType(value.getType());
+        setType(type);
     }
 
     public String getName() {

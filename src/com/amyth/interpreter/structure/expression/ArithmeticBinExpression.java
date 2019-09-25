@@ -21,19 +21,19 @@ public class ArithmeticBinExpression extends BinaryExpression {
         super(leftExpr, rightExpr);
         switch (operation){
             case "/":this.operation =  ArithmeticBinOperation.DIV;
-                super.setType(leftExpr.getType().div(rightExpr.getType()));
+                setType(leftExpr.getType().div(rightExpr.getType()));
                 break;
             case "+":this.operation =  ArithmeticBinOperation.PLUS;
-            super.setType(leftExpr.getType().plus(rightExpr.getType()));
+                setType(leftExpr.getType().plus(rightExpr.getType()));
                 break;
             case "-":this.operation =  ArithmeticBinOperation.MINUS;
-                super.setType(leftExpr.getType().minus(rightExpr.getType()));
+                setType(leftExpr.getType().minus(rightExpr.getType()));
                 break;
             case "*":this.operation =  ArithmeticBinOperation.MULT;
-                super.setType(leftExpr.getType().mul(rightExpr.getType()));
+                setType(leftExpr.getType().mul(rightExpr.getType()));
                 break;
             case "%":this.operation =  ArithmeticBinOperation.MOD;
-                super.setType(leftExpr.getType().modulus(rightExpr.getType()));
+                setType(leftExpr.getType().modulus(rightExpr.getType()));
                 break;
 
         }

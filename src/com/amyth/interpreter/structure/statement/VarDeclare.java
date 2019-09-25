@@ -2,33 +2,35 @@ package com.amyth.interpreter.structure.statement;
 
 import com.amyth.interpreter.structure.Type.Type;
 import com.amyth.interpreter.structure.expression.Expression;
-import com.amyth.interpreter.structure.expression.StringLiteral;
 import com.amyth.interpreter.structure.expression.VarLiteral;
 
 public class VarDeclare extends Statement {
-    private Expression name;
-    private Expression var;
+    private VarLiteral nameLiteral;
+    private Expression valLiteral;
 
 
-    public VarDeclare(String name, Expression var) {
+    public VarDeclare(String nameLiteral, Expression valLiteral) {
         super("vardeclare");
-        this.name = new VarLiteral(name);
-        this.var = var;
-        if(var instanceof StringLiteral)
-            var.setType(Type.STRING);
-        else
-            var.setType(Type.INT);
+        this.nameLiteral = new VarLiteral(nameLiteral, valLiteral.getType());
+        this.valLiteral = valLiteral;
     }
 
-    public String getName() {
-        return name;
+    public Expression getNameLiteral() {
+        return nameLiteral;
     }
 
-    public Expression getVar() {
-        return var;
+    public Expression getValLiteral() {
+        return valLiteral;
     }
 
     public void setType(Type type){
-        var.setType(type);
+        valLiteral.setType(type);
+    }
+
+    public VarLiteral match(String arg1) {
+        if (nameLiteral.getName().equals(arg1))
+            return nameLiteral;
+        else
+            return null;
     }
 }

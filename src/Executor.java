@@ -1,3 +1,5 @@
+import com.amyth.interpreter.structure.statement.Statement;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -14,6 +16,9 @@ public class Executor {
     private void execute() throws FileNotFoundException {
         codeGen = new CodeGenerator();
         Scanner sc = new Scanner(new File("code.txt"));
-        codeGen.analyseCode(sc);
+        Statement stmt = codeGen.analyseCode(sc);
+        if(sc.hasNext())
+            throw new RuntimeException("'{' not found");
+        stmt.toString();
     }
 }
