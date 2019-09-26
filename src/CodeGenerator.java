@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CodeGenerator {
+public class  CodeGenerator {
     static List<VarDeclare> varList = new ArrayList<>();
 
     BlockStatement statments;
@@ -34,7 +34,9 @@ public class CodeGenerator {
     Pattern repeatStatement = Pattern.compile("repeat\\((\\d+)\\)\\{");
     Pattern function_declaration = Pattern.compile("func ([a-z]+//d*).*");
     Pattern function_call = Pattern.compile("([a-z]+\\d*)\\(\\).*");
-    Pattern A_press_pattern = Pattern.compile("([a-z]+\\d*)\\(\\).*");
+    Pattern A_press_pattern = Pattern.compile("onBtnAPressed.*");
+    Pattern B_press_pattern = Pattern.compile("onBtnBPressed.*");
+    Pattern AB_press_pattern = Pattern.compile("onBtnABPressed.*");
 
     boolean if_true;
     boolean for_condition;
@@ -59,10 +61,16 @@ public class CodeGenerator {
             setFunctionDeclaration(function_declaration.matcher(line));
         else if(function_call.matcher(line).matches())
             setFunctionCall(function_call.matcher(line));
+        else if(A_press_pattern.matcher(line).matches())
+            onAPressed = new CodeGenerator().analyseCode(sc);
+        else if(B_press_pattern.matcher(line).matches())
+            onBPressed = new CodeGenerator().analyseCode(sc);
+        else if(AB_press_pattern.matcher(line).matches())
+            onABPressed = new CodeGenerator().analyseCode(sc);
+
         else
             analyseCode(sc,statments);
     }
-
     private void setFunctionCall(Matcher matcher) {
         matcher.reset();
         matcher.find();
